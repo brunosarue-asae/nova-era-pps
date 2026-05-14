@@ -6,6 +6,8 @@
   ],
   "routes": [
     {"src": "/obrigado", "dest": "/obrigado.html"},
+    {"src": "/aguardando-pagamento", "dest": "/aguardando-pagamento.html"},
+    {"src": "/aguardando-analise", "dest": "/aguardando-analise.html"},
     {"src": "/(.*)", "dest": "/index.html"}
   ]
 }
