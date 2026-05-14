@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aguardando Pagamento — A Nova Era do PPS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '611613745159149');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=611613745159149&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px; line-height: 1.6;
+      color: #F8FAFD; background: #111827;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .page {
+      width: 100%; min-height: 100vh;
+      background: linear-gradient(160deg, #111827 0%, #1A2537 60%, #111827 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 40px 20px; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ''; position: absolute;
+      top: -120px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(251,191,36,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px; padding: 56px 48px;
+      max-width: 600px; width: 100%;
+      text-align: center; position: relative; z-index: 1;
+    }
+    @media (max-width: 600px) { .card { padding: 40px 28px; border-radius: 16px; } }
+    .icon-circle {
+      width: 80px; height: 80px;
+      background: rgba(251,191,36,0.12);
+      border: 2px solid rgba(251,191,36,0.35);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .icon-circle svg { width: 38px; height: 38px; }
+    .logo { max-width: 100px; height: auto; display: block; margin: 0 auto 36px; border-radius: 8px; }
+    .badge {
+      display: inline-block;
+      background: rgba(251,191,36,0.12);
+      border: 1px solid rgba(251,191,36,0.35);
+      color: #FBBF24; padding: 5px 16px; border-radius: 50px;
+      font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Inter', sans-serif; font-size: 2.4rem; font-weight: 900;
+      line-height: 1.15; letter-spacing: -0.02em; color: #FFFFFF; margin-bottom: 16px;
+    }
+    @media (max-width: 600px) { h1 { font-size: 1.9rem; } }
+    .subtitle {
+      font-size: 1.1rem; color: #A8BAD0; line-height: 1.7; margin-bottom: 36px;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .info-box {
+      background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.18);
+      border-radius: 12px; padding: 20px 24px; text-align: left;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .info-icon { flex-shrink: 0; margin-top: 2px; }
+    .info-box p { font-size: 0.97rem; color: #A8BAD0; line-height: 1.6; }
+    .info-box strong { color: #FFFFFF; font-weight: 600; }
+    .footer-note { margin-top: 24px; font-size: 0.82rem; color: #5D6880; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <img src="https://res.cloudinary.com/dp3phn2kz/image/upload/v1778700389/Design_sem_nome_28_montfg.png" alt="A Nova Era do PPS" class="logo" />
+      <div class="icon-circle">
+        <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="19" cy="19" r="14" stroke="#FBBF24" stroke-width="2.2"/>
+          <path d="M19 11v8l5 3" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="badge">Pagamento pendente</div>
+      <h1>Aguardando confirmação do pagamento</h1>
+      <p class="subtitle">Recebemos o seu pedido! Assim que o pagamento for confirmado, você receberá as instruções de acesso por e-mail.</p>
+      <div class="info-box">
+        <div class="info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="10" stroke="#FBBF24" stroke-width="1.5"/>
+            <path d="M11 7v5" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="11" cy="15.5" r="0.75" fill="#FBBF24"/>
+          </svg>
+        </div>
+        <p><strong>Boleto bancário:</strong> o pagamento pode levar até 3 dias úteis para ser compensado. <strong>Pix e cartão</strong> são confirmados em minutos. Fique de olho no seu e-mail.</p>
+      </div>
+      <p class="footer-note">A Nova Era do PPS &middot; Dúvidas? Verifique sua caixa de spam ou entre em contato pelo WhatsApp</p>
+    </div>
+  </div>
+</body>
+</html>
