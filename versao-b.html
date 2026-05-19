@@ -1,0 +1,2402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Nova Era do PPS — Evento ao vivo sobre o impacto da reforma tributária no planejamento patrimonial e sucessório.">
+  <title>[B] A Nova Era do PPS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    /* ===========================
+       1. RESET + BASE
+       =========================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      font-family: var(--corpo-family), sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      background: var(--bg-light);
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===========================
+       2. CSS VARIABLES
+       =========================== */
+    :root {
+      --primary:           #1B3A6B;
+      --primary-dark:      #122A52;
+      --primary-light:     #EAF0F8;
+      --accent:            #FF6147;
+      --accent-mid:        #F0502E;
+      --accent-soft:       rgba(255,97,71,0.28);
+      --bg-dark:           #0D1B2A;
+      --section-tint:      rgba(255,97,71,0.06);
+      --bg-dark-alt:       #162234;
+      --bg-light:          #F8FAFD;
+      --bg-light-alt:      #EEF2F7;
+      --text-dark:         #1A2233;
+      --text-muted:        #5D6880;
+      --text-light:        #FFFFFF;
+      --text-muted-light:  #A8BAD0;
+
+      --titulo-family:     'Inter';
+      --subtitulo-family:  'Inter';
+      --corpo-family:      'DM Sans';
+
+      --secao-padding:     80px;
+      --border-radius:     8px;
+
+      --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md:  0 4px 12px rgba(0,0,0,0.12);
+      --shadow-lg:  0 8px 30px rgba(0,0,0,0.16);
+      --shadow-xl:  0 16px 50px rgba(0,0,0,0.2);
+
+      --transition-fast: 0.15s ease;
+      --transition-base: 0.3s ease;
+      --transition-slow: 0.5s ease;
+
+      --container-max:    1200px;
+      --container-narrow: 900px;
+      --container-text:   720px;
+    }
+
+    /* ===========================
+       3. TIPOGRAFIA
+       =========================== */
+    h1, h2, h3 {
+      font-family: var(--titulo-family), sans-serif;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    h4, h5 {
+      font-family: var(--subtitulo-family), sans-serif;
+      line-height: 1.3;
+    }
+    h1 { font-size: 2.75rem; font-weight: 900; }
+    h2 { font-size: 2rem;    font-weight: 800; }
+    h3 { font-size: 1.5rem;  font-weight: 700; }
+    h4 { font-size: 1.25rem; font-weight: 600; }
+    h5 { font-size: 1.1rem;  font-weight: 600; }
+    p  { font-size: 1.05rem; line-height: 1.7; }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 3.5rem; }
+      h2 { font-size: 2.5rem; }
+      h3 { font-size: 1.75rem; }
+      h4 { font-size: 1.35rem; }
+      p  { font-size: 1.1rem; }
+    }
+    @media (min-width: 1024px) {
+      h1 { font-size: 4.5rem; }
+      h2 { font-size: 3rem; }
+      h3 { font-size: 2rem; }
+      h4 { font-size: 1.5rem; }
+      p  { font-size: 1.15rem; }
+    }
+
+    /* ===========================
+       4. LAYOUT / CONTAINER
+       =========================== */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    @media (min-width: 768px) {
+      .container { padding: 0 40px; }
+    }
+    @media (min-width: 1024px) {
+      .container { padding: 0 60px; }
+    }
+    .container--narrow { max-width: var(--container-narrow); }
+    .container--text   { max-width: var(--container-text); }
+
+    /* ===========================
+       5. SECTION BASE
+       =========================== */
+    section { padding: 60px 0; }
+    @media (min-width: 768px) {
+      section { padding: calc(var(--secao-padding) * 0.8) 0; }
+    }
+    @media (min-width: 1024px) {
+      section { padding: var(--secao-padding) 0; }
+    }
+
+    /* ===========================
+       6. GRIDS
+       =========================== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    }
+    @media (min-width: 1024px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid-4 { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    }
+
+    /* ===========================
+       7. BOTÕES — solido
+       =========================== */
+    .btn-cta--solido {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 18px 48px;
+      font-family: var(--titulo-family), sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background var(--transition-base), transform var(--transition-fast), box-shadow var(--transition-base);
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .btn-cta--solido:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .btn-cta--solido:active { transform: translateY(0); }
+
+    /* Variante hero — accent/dourado */
+    .btn-cta--hero {
+      display: inline-block;
+      background: var(--accent);
+      color: #1A0A08;
+      border: none;
+      padding: 20px 56px;
+      font-family: var(--titulo-family), sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background var(--transition-base), transform var(--transition-fast), box-shadow var(--transition-base);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .btn-cta--hero:hover {
+      background: #F0502E;
+      color: #1A2233;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255,97,71,0.35);
+    }
+    .btn-cta--hero:active { transform: translateY(0); }
+
+    @media (max-width: 767px) {
+      .btn-cta--solido,
+      .btn-cta--hero {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* ===========================
+       8. CARDS — borda-esquerda
+       =========================== */
+    .card--borda-esquerda {
+      background: var(--bg-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      padding: 32px 28px;
+      transition: background var(--transition-base), border-color var(--transition-base);
+    }
+    .card--borda-esquerda:hover {
+      background: var(--primary-light);
+      border-left-color: var(--accent);
+    }
+    .section--dark .card--borda-esquerda,
+    .section--dark-alt .card--borda-esquerda,
+    .section--dark-gradient .card--borda-esquerda {
+      background: var(--bg-dark-alt);
+      color: var(--text-light);
+      border-left-color: var(--accent);
+    }
+    .section--dark .card--borda-esquerda:hover,
+    .section--dark-alt .card--borda-esquerda:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* ===========================
+       9. SEPARADORES — gradiente
+       =========================== */
+    .separator--gradiente {
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      margin: 0;
+    }
+
+    /* ===========================
+       10. FUNDOS DE SEÇÃO
+       =========================== */
+    .section--dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+    .section--dark-alt {
+      background: var(--bg-dark-alt);
+      color: var(--text-light);
+    }
+    .section--dark-gradient {
+      background: linear-gradient(180deg, var(--bg-dark), var(--bg-dark-alt));
+      color: var(--text-light);
+    }
+    .section--light {
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+    .section--light-alt {
+      background: var(--bg-light-alt);
+      color: var(--text-dark);
+    }
+    .section--light-gradient {
+      background: linear-gradient(180deg, var(--bg-light), var(--bg-light-alt));
+      color: var(--text-dark);
+    }
+    .section--primary-tint {
+      background: var(--primary-light);
+      color: var(--text-dark);
+    }
+
+    /* ===========================
+       11. PADRÕES HUMANIZADOS
+       =========================== */
+
+    /* Highlight — underline parcial */
+    .highlight {
+      position: relative;
+      display: inline;
+      z-index: 1;
+    }
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: -2px;
+      right: -2px;
+      height: 35%;
+      background: var(--primary-light);
+      z-index: -1;
+      border-radius: 2px;
+    }
+    .section--dark .highlight::after  {
+      background: rgba(255,97,71,0.25);
+    }
+    .section--dark-alt .highlight::after {
+      background: rgba(255,97,71,0.25);
+    }
+
+    /* Citação */
+    .quote {
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      margin: 24px 0;
+      font-family: var(--subtitulo-family), sans-serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      background: rgba(0,0,0,0.02);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+    .section--dark .quote,
+    .section--dark-alt .quote {
+      color: var(--text-muted-light);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Benefit list — bullets ✓ com círculo */
+    .benefit-list {
+      list-style: none;
+      padding: 0;
+    }
+    .benefit-list li {
+      position: relative;
+      padding: 10px 0 10px 40px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: inherit;
+    }
+    .benefit-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 26px;
+      height: 26px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    /* Bullets em fundo escuro — usar accent */
+    .section--dark .benefit-list li::before,
+    .section--dark-alt .benefit-list li::before,
+    .section--dark-gradient .benefit-list li::before {
+      background: var(--accent);
+      color: #1A2233;
+    }
+    /* Bullets negativos */
+    .benefit-list--negative li::before {
+      content: '✕';
+      background: #991b1b;
+      color: #fff;
+    }
+    .section--dark-alt .benefit-list--negative li::before {
+      background: #ef4444;
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .badge--accent { background: var(--accent-mid); color: #1A0A08; }
+    .badge--muted  { background: var(--text-muted); }
+
+    /* Stat number */
+    .stat-number {
+      font-family: var(--titulo-family), sans-serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    @media (min-width: 768px)  { .stat-number { font-size: 6rem; } }
+    @media (min-width: 1024px) { .stat-number { font-size: 7.5rem; } }
+
+    /* Urgency bar */
+    .urgency-bar {
+      display: inline-block;
+      background: var(--accent-mid);
+      color: #1A0A08;
+      padding: 10px 24px;
+      border-radius: var(--border-radius);
+      font-family: var(--subtitulo-family), sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    /* Urgency pill — variante para fundo escuro */
+    .urgency-pill {
+      display: inline-block;
+      background: rgba(255,97,71,0.09);
+      border: 1px solid rgba(255,97,71,0.30);
+      color: var(--accent-mid);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-family: var(--subtitulo-family), sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    /* Video wrapper 16:9 */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* Accordion */
+    .accordion-item {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .section--dark .accordion-item,
+    .section--dark-alt .accordion-item {
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-family: var(--subtitulo-family), sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      color: inherit;
+      transition: color var(--transition-fast);
+    }
+    .accordion-header:hover { color: var(--accent-mid); }
+    .accordion-icon {
+      font-size: 1.4rem;
+      font-weight: 300;
+      transition: transform var(--transition-base);
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .accordion-item.active .accordion-icon { transform: rotate(45deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-slow);
+    }
+    .accordion-body-inner {
+      padding: 0 0 20px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .section--dark .accordion-body-inner,
+    .section--dark-alt .accordion-body-inner {
+      color: var(--text-muted-light);
+    }
+
+    /* Comparison table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 1rem;
+    }
+    .comparison-table thead th {
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--subtitulo-family), sans-serif;
+      font-weight: 600;
+    }
+    .comparison-table tbody tr:nth-child(even) { background: rgba(0,0,0,0.03); }
+    .comparison-table .check { color: var(--primary); font-weight: 700; font-size: 1.2rem; }
+    .comparison-table .cross { color: var(--text-muted); font-size: 1.2rem; }
+
+    /* Utilitários */
+    .text-center  { text-align: center; }
+    .text-left    { text-align: left; }
+    .mx-auto      { margin-left: auto; margin-right: auto; }
+    .mb-sm        { margin-bottom: 12px; }
+    .mb-md        { margin-bottom: 24px; }
+    .mb-lg        { margin-bottom: 40px; }
+    .mb-xl        { margin-bottom: 60px; }
+    .accent-text  { color: var(--accent-mid); }
+
+    /* ===========================
+       12. ESTILOS CUSTOMIZADOS
+       =========================== */
+
+    /* Eyebrow / Premissa acima do título */
+    .eyebrow {
+      font-family: var(--subtitulo-family), sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-mid);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* Hero headline responsivo */
+    #hero h1 {
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    #hero .hero-sub {
+      font-family: var(--subtitulo-family), sans-serif;
+      font-size: 1.15rem;
+      color: var(--text-muted-light);
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      #hero .hero-sub { font-size: 1.25rem; }
+    }
+    #hero .hero-meta {
+      font-family: var(--corpo-family), sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted-light);
+      margin-top: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Bullets intro label */
+    .bullets-label {
+      font-family: var(--subtitulo-family), sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-mid);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Card demonstração com número */
+    .demo-card {
+      background: var(--bg-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      padding: 28px 24px;
+      position: relative;
+      transition: background var(--transition-base), border-color var(--transition-base);
+    }
+    .demo-card:hover {
+      background: var(--primary-light);
+      border-left-color: var(--accent-mid);
+    }
+    .demo-card__number {
+      font-family: var(--titulo-family), sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary-light);
+      border: 2px solid var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin-bottom: 14px;
+      color: var(--primary);
+    }
+    .demo-card__title {
+      font-family: var(--titulo-family), sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .demo-card__text {
+      font-family: var(--corpo-family), sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Card destaque — último item da demo */
+    .demo-card--destaque {
+      border-left-color: var(--accent);
+      background: #fffbf0;
+    }
+    .demo-card--destaque .demo-card__number {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .demo-card--destaque .demo-card__title { color: var(--text-dark); }
+    .demo-card--destaque:hover {
+      background: #fff4d6;
+      border-left-color: var(--accent);
+    }
+
+    /* Seção Para Quem — colunas side by side */
+    .para-quem-col h3 {
+      font-family: var(--subtitulo-family), sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+    .para-quem-col h3.col-sim  { color: var(--accent-mid); }
+    .para-quem-col h3.col-nao  { color: #ef4444; }
+
+    /* Linha de topo dourada no hero */
+    #hero {
+      position: relative;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--primary-light), var(--accent), transparent);
+    }
+
+    /* Demonstração — seção introdução */
+    .demo-intro {
+      font-family: var(--corpo-family), sans-serif;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '611613745159149');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=611613745159149&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <!-- =========================================================
+       SEÇÃO HERO — Pontos 1, 2 e 3 (uma única section)
+       ========================================================= -->
+  <section id="hero" class="section--dark" aria-label="Apresentação do evento">
+
+    <!-- Ponto 1: Headline + Subheadline + Urgência -->
+    <div class="container text-center" style="padding-top: 16px;">
+
+      <!-- Logo do evento -->
+      <div style="margin-bottom: 32px;">
+        <img
+          src="https://res.cloudinary.com/dp3phn2kz/image/upload/v1778700389/Design_sem_nome_28_montfg.png"
+          alt="A Nova Era do PPS — Planejamento Patrimonial e Sucessório"
+          style="max-width: 200px; width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 12px;"
+        />
+      </div>
+
+      <!-- Eyebrow / Premissa -->
+      <p class="eyebrow">Quem entende a reforma tributária cobra mais pelo mesmo serviço</p>
+
+      <!-- Headline principal -->
+      <h1>
+        A reforma tributária mudou o PPS para sempre.<br>
+        <span class="accent-text">O que você vai fazer com isso?</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="hero-sub mb-md">
+        Em 3 horas ao vivo, você entende como a reforma impacta o planejamento
+        patrimonial e sucessório — e como transformar isso em segurança técnica
+        e mais receita.
+      </p>
+
+      <!-- Urgência/Escassez -->
+      <div style="margin-top: 28px; margin-bottom: 8px;">
+        <span class="urgency-pill">A Reforma já Começou! Se você não se atualizou, já está atrasado!</span>
+      </div>
+
+      <!-- Data e horário do evento -->
+      <div style="margin-top: 24px; display: inline-flex; align-items: center; gap: 12px; background: rgba(255,97,71,0.08); border: 1px solid rgba(255,97,71,0.25); border-radius: 8px; padding: 12px 24px;">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="4" width="16" height="14" rx="2" stroke="#FF6147" stroke-width="1.5"/>
+          <path d="M6 2v4M14 2v4M2 9h16" stroke="#FF6147" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span style="color:var(--text-light); font-family:var(--subtitulo-family),sans-serif; font-weight:600; font-size:1rem;">
+          <span style="color:var(--accent);">02 de junho de 2026</span> &nbsp;·&nbsp; 19h30
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Ponto 2: Bullet Points -->
+    <div class="container container--text" style="padding-top: 36px; padding-bottom: 20px;">
+      <p class="bullets-label">O que você vai descobrir no evento:</p>
+      <ul class="benefit-list">
+        <li>Como o IBS, CBS e as novas regras tributárias estão redesenhando o PPS na prática</li>
+        <li>O impacto do <strong>novo ITCMD</strong> nas estruturas sucessórias — o que revisar agora antes que seja tarde</li>
+        <li>Por que o <strong>IR de Alta Renda</strong> muda o cálculo patrimonial dos seus clientes e o que fazer com isso</li>
+        <li>O que muda nas orientações que você já dava aos seus clientes — e o que fazer agora</li>
+        <li>Como transformar a reforma em um serviço de alto valor que seus clientes vão buscar antes da concorrência</li>
+      </ul>
+    </div>
+
+    <!-- Ponto 2.5: Vídeo — OMITIDO (VIDEO_URL vazio) -->
+
+    <!-- Ponto 3: Botão CTA -->
+    <div class="container text-center" style="padding-top: 36px; padding-bottom: 56px;">
+      <a href="#oferta" class="btn-cta--hero">
+        Garantir minha vaga
+      </a>
+      <p class="hero-meta">Evento online ao vivo · 3 horas · Link enviado por WhatsApp</p>
+    </div>
+
+  </section>
+
+  <!-- Separador -->
+  <hr class="separator--gradiente" role="separator">
+
+  <!-- =========================================================
+       SEÇÃO 4: DEMONSTRAÇÃO
+       ========================================================= -->
+  <section id="demonstracao" class="section--light-alt" aria-label="Como funciona o evento">
+    <div class="container container--narrow">
+
+      <h2 class="text-center mb-md">O que acontece nas 3 horas do evento</h2>
+      <p class="demo-intro">
+        Em 3 horas ao vivo, percorremos as mudanças que a reforma tributária impõe ao PPS
+        com profundidade técnica e aplicação prática. Você sai sabendo o que muda, o que
+        permanece e como atuar nos próximos projetos.
+      </p>
+
+      <div class="grid-2">
+
+        <div class="demo-card" role="article">
+          <div class="demo-card__number" aria-hidden="true">1</div>
+          <h3 class="demo-card__title">IBS/CBS e Estruturas Patrimoniais</h3>
+          <p class="demo-card__text">
+            Impacto do IBS e CBS nas holdings em operação, nas cláusulas do contrato social
+            e na tributação sobre locação e compra e venda de imóveis.
+          </p>
+        </div>
+
+        <div class="demo-card" role="article">
+          <div class="demo-card__number" aria-hidden="true">2</div>
+          <h3 class="demo-card__title">Novo ITCMD e IR de Alta Renda</h3>
+          <p class="demo-card__text">
+            Como o novo ITCMD remodela as estratégias de sucessão e o que o IR de Alta Renda
+            muda no cálculo patrimonial dos seus clientes — e o que fazer agora.
+          </p>
+        </div>
+
+        <div class="demo-card" role="article">
+          <div class="demo-card__number" aria-hidden="true">3</div>
+          <h3 class="demo-card__title">Planejamento Sucessório e Proteção Patrimonial</h3>
+          <p class="demo-card__text">
+            O que muda nas estratégias de proteção patrimonial, na sucessão familiar e no
+            uso de seguro de vida, consórcio e previdência privada em estruturas de PPS.
+          </p>
+        </div>
+
+        <div class="demo-card" role="article">
+          <div class="demo-card__number" aria-hidden="true">4</div>
+          <h3 class="demo-card__title">Como Adaptar Suas Orientações ao Novo Cenário</h3>
+          <p class="demo-card__text">
+            Estratégias para atualizar os serviços que você já presta e orientar clientes
+            com segurança técnica durante o período de transição tributária.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Separador -->
+  <hr class="separator--gradiente" role="separator">
+
+  <!-- =========================================================
+       SEÇÃO 5: PARA QUEM É
+       ========================================================= -->
+  <section id="para-quem" class="section--dark-alt" aria-label="Público-alvo do evento">
+    <div class="container">
+
+      <h2 class="text-center mb-lg">Para quem é este evento?</h2>
+
+      <div class="grid-2">
+
+        <!-- Coluna: Para quem é -->
+        <div class="para-quem-col" role="list" aria-label="Perfis que se beneficiam do evento">
+          <h3 class="col-sim">Isso é para você se...</h3>
+          <ul class="benefit-list">
+            <li>Você é advogado que atua em PPS e quer entender o impacto real da reforma no dia a dia com o cliente</li>
+            <li>Você é contador que trabalha com clientes com patrimônio e precisa atualizar sua visão sobre as estruturas existentes</li>
+            <li>Você tem base em PPS mas sente que a reforma abriu um terreno novo e ainda incerto</li>
+            <li>Você prefere estar à frente do problema antes de o cliente fazer a pergunta que você ainda não sabe responder</li>
+          </ul>
+        </div>
+
+        <!-- Coluna: Para quem não é -->
+        <div class="para-quem-col" role="list" aria-label="Perfis que não se beneficiam do evento">
+          <h3 class="col-nao">Não é para você se...</h3>
+          <ul class="benefit-list benefit-list--negative">
+            <li>Você não tem atuação ou interesse em planejamento patrimonial e sucessório</li>
+            <li>Você busca introdução ao direito tributário ou contabilidade básica</li>
+            <li>Você acredita que ainda dá para esperar para se atualizar sobre a reforma tributária</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- NÃO fechar </body></html> — adicionado pelo bloco4 -->
+
+<!-- =========================================================
+     BLOCO 2: CSS Específico das Seções 6-9
+     ========================================================= -->
+<style>
+/* === Seção 7: Preço === */
+.price-block {
+  text-align: center;
+  padding: 40px 0;
+}
+.price-old {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-size: 1.3rem;
+  color: var(--text-muted-light);
+  text-decoration: line-through;
+  margin-bottom: 8px;
+  display: block;
+}
+.price-current {
+  font-family: var(--titulo-family), sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  color: var(--accent);
+  line-height: 1.1;
+}
+@media (min-width: 768px) { .price-current { font-size: 4rem; } }
+@media (min-width: 1024px) { .price-current { font-size: 4.5rem; } }
+.price-label {
+  font-size: 1.05rem;
+  color: var(--text-muted-light);
+  margin-top: 8px;
+  font-family: var(--corpo-family), sans-serif;
+}
+
+/* === Seção 7: Entregáveis === */
+.entregavel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  gap: 20px;
+}
+.entregavel:last-child { border-bottom: none; }
+.entregavel-nome {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-light);
+  flex: 1;
+}
+.entregavel-nome span {
+  display: block;
+  font-family: var(--corpo-family), sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--text-muted-light);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.entregavel-valor {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-size: 0.9rem;
+  color: var(--accent);
+  white-space: nowrap;
+  text-align: right;
+  font-weight: 600;
+}
+.entregavel-check {
+  color: var(--accent);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* === Seção 7: Garantia === */
+.garantia-block {
+  border: 2px dashed rgba(255,97,71,0.30);
+  border-radius: var(--border-radius);
+  padding: 32px 28px;
+  background: rgba(255,255,255,0.03);
+  text-align: center;
+  max-width: 600px;
+  margin: 40px auto 0;
+}
+.garantia-block h3 {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+.garantia-block p {
+  color: var(--text-muted-light);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.garantia-icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+  display: block;
+  filter: grayscale(0);
+}
+
+/* === Seção 8: Depoimentos === */
+.testimonial-card {
+  padding: 28px 24px;
+  position: relative;
+}
+.testimonial-quote-mark {
+  font-family: var(--titulo-family), sans-serif;
+  font-size: 4rem;
+  color: var(--primary);
+  opacity: 0.2;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+.testimonial-text {
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  color: var(--text-dark);
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  font-family: var(--titulo-family), sans-serif;
+  border: 2px solid var(--primary-light);
+}
+.testimonial-name {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+.testimonial-role {
+  font-family: var(--corpo-family), sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* === Seção 9: Paliativo === */
+.paliativo-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  border: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  padding: 44px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+.paliativo-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent-mid), var(--primary));
+}
+.paliativo-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--subtitulo-family), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.paliativo-wrapper h3 {
+  font-family: var(--titulo-family), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+.paliativo-wrapper p {
+  font-family: var(--corpo-family), sans-serif;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
+/* === Seção 6: Formato visual === */
+.formato-icon-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  background: var(--primary-light);
+  border: 2px solid rgba(27,58,107,0.15);
+  margin: 0 auto 20px;
+}
+.formato-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+@media (min-width: 640px) {
+  .formato-info-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .formato-info-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.formato-info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 20px;
+  background: var(--bg-light);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+.formato-info-item svg {
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+.formato-info-item strong {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 4px;
+}
+.formato-info-item span {
+  font-family: var(--corpo-family), sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+</style>
+
+<!-- Separador de entrada -->
+<hr class="separator--gradiente" role="separator">
+
+<!-- =========================================================
+     SEÇÃO 6: FORMATO DO PRODUTO
+     ========================================================= -->
+<section id="formato" class="section--light" aria-label="Como funciona o evento">
+  <div class="container container--narrow">
+
+    <h2 class="text-center mb-md">Como funciona o evento</h2>
+    <p class="text-center mb-lg" style="color:var(--text-muted); max-width:600px; margin-left:auto; margin-right:auto;">
+      "A Nova Era do PPS" é um evento online ao vivo — uma única sessão de
+      3 horas com profundidade técnica real sobre o impacto da reforma
+      tributária no planejamento patrimonial e sucessório.
+    </p>
+
+    <div class="formato-info-grid">
+
+      <div class="formato-info-item">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <strong>Formato</strong>
+        <span>Evento ao vivo online — Link enviado por WhatsApp</span>
+      </div>
+
+      <div class="formato-info-item">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <strong>Duração</strong>
+        <span>3 horas — sessão única, ao vivo</span>
+      </div>
+
+      <div class="formato-info-item">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <strong>Público</strong>
+        <span>Advogados e contadores que atuam em PPS</span>
+      </div>
+
+      <div class="formato-info-item">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.41 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/>
+        </svg>
+        <strong>Suporte</strong>
+        <span>WhatsApp e grupo exclusivo de participantes</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="separator--gradiente" role="separator">
+
+<!-- =========================================================
+     SEÇÃO 7: OFERTA COMPLETA + PREÇO + GARANTIA
+     ========================================================= -->
+<section id="oferta" class="section--dark-gradient" aria-label="Oferta e preço do evento">
+  <div class="container container--narrow">
+
+    <h2 class="text-center mb-md">Escolha o seu ingresso</h2>
+    <p class="text-center mb-lg" style="color:var(--text-muted-light); max-width:580px; margin-left:auto; margin-right:auto;">
+      Duas opções de participação — escolha a que faz mais sentido para o seu momento.
+    </p>
+
+    <!-- Grade de 2 ingressos -->
+    <style>
+    .ingressos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+    @media (min-width: 640px) {
+      .ingressos-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .ingresso-card {
+      border-radius: var(--border-radius);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .ingresso-card--basico {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .ingresso-card--vip {
+      background: rgba(255,97,71,0.06);
+      border: 2px solid var(--accent-soft);
+      position: relative;
+    }
+    .ingresso-badge-vip {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-mid);
+      color: #1A0A08;
+      font-family: var(--subtitulo-family), sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .ingresso-card h3 {
+      font-family: var(--titulo-family), sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    .ingresso-itens {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      flex: 1;
+    }
+    .ingresso-itens li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 0.98rem;
+      color: var(--text-muted-light);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.5;
+    }
+    .ingresso-itens li:last-child { border-bottom: none; }
+    .ingresso-itens li .check {
+      color: #22C55E;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .ingresso-price {
+      font-family: var(--titulo-family), sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: var(--text-light);
+      line-height: 1;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    .ingresso-price-label {
+      font-size: 0.85rem;
+      color: var(--text-muted-light);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .btn-ingresso-basico {
+      display: block;
+      background: transparent;
+      color: var(--text-light);
+      border: 2px solid rgba(255,255,255,0.3);
+      padding: 14px 24px;
+      border-radius: var(--border-radius);
+      font-family: var(--titulo-family), sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color var(--transition-base), background var(--transition-base);
+    }
+    .btn-ingresso-basico:hover {
+      border-color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.06);
+    }
+    .btn-ingresso-vip {
+      display: block;
+      background: var(--accent);
+      color: #1A0A08;
+      border: none;
+      padding: 16px 24px;
+      border-radius: var(--border-radius);
+      font-family: var(--titulo-family), sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: filter var(--transition-base), transform var(--transition-fast);
+    }
+    .btn-ingresso-vip:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+    </style>
+
+    <div class="ingressos-grid">
+
+      <!-- Ingresso Básico -->
+      <div class="ingresso-card ingresso-card--basico">
+        <h3>Ingresso Básico</h3>
+        <ul class="ingresso-itens">
+          <li><span class="check">✓</span> Acesso ao evento ao vivo de 3 horas</li>
+          <li><span class="check">✓</span> Participação em tempo real com perguntas ao vivo</li>
+          <li><span class="check">✓</span> Grupo exclusivo de participantes no WhatsApp</li>
+        </ul>
+        <div class="ingresso-price">R$ 49,90</div>
+        <p class="ingresso-price-label">Pagamento único · Confirmação por e-mail</p>
+        <a href="https://pay.hotmart.com/M104969764G?checkoutMode=10" class="btn-ingresso-basico" target="_blank" rel="noopener">Quero o ingresso básico</a>
+      </div>
+
+      <!-- Ingresso VIP -->
+      <div class="ingresso-card ingresso-card--vip">
+        <span class="ingresso-badge-vip">Mais completo</span>
+        <h3>Ingresso VIP</h3>
+        <ul class="ingresso-itens">
+          <li><span class="check">✓</span> Acesso ao evento ao vivo de 3 horas</li>
+          <li><span class="check">✓</span> Participação em tempo real com perguntas ao vivo</li>
+          <li><span class="check">✓</span> Grupo exclusivo de participantes no WhatsApp</li>
+          <li><span class="check">✓</span> <strong style="color:var(--text-light);">Gravação completa do evento</strong></li>
+          <li><span class="check">✓</span> <strong style="color:var(--text-light);">Material de apoio — apostila e slides</strong></li>
+        </ul>
+        <div class="ingresso-price">R$ <span style="color:var(--accent);">197,90</span></div>
+        <p class="ingresso-price-label">Pagamento único · Confirmação por e-mail</p>
+        <a href="https://pay.hotmart.com/U105814626Q?off=fw2eccqb" class="btn-ingresso-vip" target="_blank" rel="noopener">Quero o ingresso VIP</a>
+      </div>
+
+    </div>
+
+    <!-- Bloco Garantia -->
+    <div class="garantia-block">
+      <span class="garantia-icon" role="img" aria-label="Política de ingresso">📋</span>
+      <h3>Política de ingresso</h3>
+      <p>
+        Por ser um evento ao vivo com data fixa, você tem <strong>7 dias de garantia</strong> da compra do ingresso, limitado à data do evento.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="separator--gradiente" role="separator">
+
+<!-- =========================================================
+     SEÇÃO 8: DEPOIMENTOS / PROVAS
+     ========================================================= -->
+<style>
+.depo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 640px) {
+  .depo-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+.depo-img-card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-base), transform var(--transition-fast);
+  background: var(--bg-light-alt);
+}
+.depo-img-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+.depo-img-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+</style>
+
+<section id="depoimentos" class="section--light" aria-label="Depoimentos de participantes">
+  <div class="container container--narrow">
+
+    <h2 class="text-center mb-md">O que dizem quem já passou por aqui</h2>
+    <p class="text-center mb-lg" style="color:var(--text-muted); max-width:560px; margin-left:auto; margin-right:auto;">
+      Profissionais que participaram de aulas e eventos anteriores com o Prof. Bruno Saruê.
+    </p>
+
+    <div class="depo-grid">
+
+      <div class="depo-img-card">
+        <img
+          src="https://res.cloudinary.com/dp3phn2kz/image/upload/v1773854976/Depoimento_Denis_Tobias_1_mru3qd.jpg"
+          alt="Depoimento de Denis Tobias"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="depo-img-card">
+        <img
+          src="https://res.cloudinary.com/dp3phn2kz/image/upload/v1773854976/Depoimento_Ana_Paula_Figueiredo_xaynw3.jpg"
+          alt="Depoimento de Ana Paula Figueiredo"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="depo-img-card">
+        <img
+          src="https://res.cloudinary.com/dp3phn2kz/image/upload/v1778617865/Depoimento_Bira_-_Mentoria_HdE_ybyaru.jpg"
+          alt="Depoimento de Ubiraci"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="depo-img-card">
+        <img
+          src="https://res.cloudinary.com/dp3phn2kz/image/upload/v1773854975/HnP_-_Depoimento_Mara_Pradella_1_ush0xz.jpg"
+          alt="Depoimento de Mara Pradella"
+          loading="lazy"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="separator--gradiente" role="separator">
+
+<!-- =========================================================
+     SEÇÃO 9: PALIATIVO — Grupo Exclusivo de Participantes
+     ========================================================= -->
+<section id="paliativo" class="section--primary-tint" aria-label="Bônus de entrada imediata">
+  <div class="container">
+
+    <div class="paliativo-wrapper">
+      <span class="paliativo-badge">Acesso imediato após inscrição</span>
+      <h3>Você já entra no grupo exclusivo de participantes</h3>
+      <p>
+        Assim que sua inscrição for confirmada, você recebe acesso ao grupo exclusivo
+        de participantes do evento — onde o professor compartilha novidades, lembretes
+        e atualizações sobre a reforma antes do dia do evento. É o seu primeiro passo
+        antes mesmo das 3 horas ao vivo.
+      </p>
+      <a href="#oferta" class="btn-cta--solido">
+        Garantir minha vaga
+      </a>
+    </div>
+
+  </div>
+</section>
+<style>
+/* ===========================
+   BLOCO 3: CSS Específico
+   =========================== */
+
+/* === Seção 10: Expert Photo === */
+.expert-photo {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+}
+.expert-photo-placeholder {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3 / 4;
+  background: var(--bg-dark-alt);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--text-muted-light);
+}
+.expert-info h2 {
+  margin-bottom: 8px;
+}
+.expert-info .expert-bio {
+  font-size: 1.1rem;
+  color: var(--text-muted-light);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+.expert-resultado {
+  background: var(--accent-mid);
+  color: #1A0A08;
+  padding: 20px 24px;
+  border-radius: var(--border-radius);
+  font-family: var(--subtitulo-family), sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 24px;
+}
+
+/* === Seção 10: Credenciais === */
+.credential-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+.credential-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.1);
+  color: var(--text-light);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: var(--subtitulo-family), sans-serif;
+}
+.credential-item::before {
+  content: '✦';
+  color: var(--accent-mid);
+  font-size: 0.7rem;
+}
+
+/* === Seção 10: Expert Layout === */
+.expert-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .expert-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+}
+.expert-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+.expert-historia {
+  border-left: 3px solid var(--accent-soft);
+  padding: 16px 20px;
+  margin-top: 24px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-size: 1.05rem;
+  color: var(--text-muted-light);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* === Seção 11: Objeções === */
+.objection-item {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.objection-item:last-child { border-bottom: none; }
+.objection-question {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.objection-question::before {
+  content: '"';
+  font-family: var(--titulo-family), sans-serif;
+  font-size: 2rem;
+  color: var(--primary);
+  opacity: 0.4;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: -4px;
+}
+.objection-answer {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  padding-left: 30px;
+}
+
+/* === Seção 12: FAQ Accordion === */
+.accordion-item {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.accordion-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  font-family: var(--subtitulo-family), sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  gap: 16px;
+  user-select: none;
+  transition: color var(--transition-base);
+}
+.accordion-header:hover { color: var(--primary); }
+.accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: background var(--transition-base), transform var(--transition-base);
+  line-height: 1;
+}
+.accordion-item.active .accordion-icon {
+  background: var(--primary);
+  color: #fff;
+  transform: rotate(45deg);
+}
+.accordion-item.active .accordion-header { color: var(--primary); }
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.accordion-body-inner {
+  padding: 0 0 20px 0;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* === Seção 13: Suporte === */
+.support-channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 32px 0;
+}
+.support-channel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 24px;
+  min-width: 160px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+.support-channel:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,97,71,0.20);
+}
+.support-channel-icon {
+  font-size: 2rem;
+}
+.support-channel-name {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  text-align: center;
+}
+.support-channel-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted-light);
+  text-align: center;
+  line-height: 1.4;
+}
+.support-promise {
+  max-width: 560px;
+  margin: 0 auto 36px;
+  text-align: center;
+  font-size: 1.15rem;
+  color: var(--text-muted-light);
+  line-height: 1.7;
+}
+</style>
+
+<!-- ============================================================
+     SEÇÃO 10: AUTORIDADE DO EXPERT
+     ============================================================ -->
+<section id="autoridade" class="section--dark">
+  <div class="container">
+
+    <div class="text-center mb-xl">
+      <span class="badge">Quem vai conduzir</span>
+      <h2 style="margin-top:16px;">20 anos de PPS.<br>15 anos formando profissionais.</h2>
+    </div>
+
+    <div class="expert-grid">
+
+      <!-- Foto -->
+      <div class="expert-photo-wrap">
+        <img
+          src="https://res.cloudinary.com/dp3phn2kz/image/upload/v1772298626/Foto_Bruno_Reduzida_wvleho.png"
+          alt="Foto do especialista"
+          class="expert-photo"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Bio e credenciais -->
+      <div class="expert-info">
+        <h2 style="color:var(--text-light); margin-bottom:4px;">Bruno Saruê</h2>
+        <p style="color:var(--accent-mid); font-family:var(--subtitulo-family),sans-serif; font-weight:600; font-size:0.95rem; margin-bottom:20px; letter-spacing:0.04em; text-transform:uppercase;">Advogado — Planejamento Patrimonial e Sucessório</p>
+
+        <p class="expert-bio">
+          Com mais de 20 anos construindo soluções em PPS e mais de 15 ensinando o tema, ha uma convicção que guia cada conteúdo: o conhecimento técnico de alto nível não pode ficar restrito a pequenos círculos.
+        </p>
+
+        <p class="expert-bio" style="margin-top: -8px;">
+          A reforma tributária não é só uma mudança de regras — é uma mudança de era para o PPS. Quem entender primeiro sai na frente.
+        </p>
+
+        <!-- Credenciais -->
+        <ul class="credential-list">
+          <li class="credential-item">+20 anos em planejamento patrimonial e sucessório</li>
+          <li class="credential-item">Professor do tema há +15 anos</li>
+          <li class="credential-item">Advogado especialista em PPS</li>
+          <li class="credential-item">Mais de 5.000 alunos em cursos online e presenciais</li>
+        </ul>
+
+        <!-- Destaque / resultado -->
+        <div class="expert-resultado">
+          "O conhecimento técnico de alto nível não pode ficar restrito a pequenos círculos. Esse evento é a prova disso."
+        </div>
+
+        <!-- Mini jornada -->
+        <div class="expert-historia">
+          Ao longo de duas décadas, acompanhou de perto como a falta de atualização técnica custa caro para os profissionais — e para os clientes deles. A reforma tributária é o maior ponto de inflexão do PPS em quase 40 anos. Este evento existe para que mais profissionais cheguem preparados antes do prazo — e ajudem mais clientes.
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SEÇÃN 11: OBJEÇÕES E RESPOSTAS
+     ============================================================ -->
+<section id="objecoes" class="section--light-alt">
+  <div class="container container--text">
+
+    <div class="text-center mb-xl">
+      <span class="badge">Dúvidas comuns</span>
+      <h2 style="margin-top:16px;">Já vi essa pergunta antes.<br>Deixa eu responder direto.</h2>
+    </div>
+
+    <div>
+
+      <div class="objection-item">
+        <p class="objection-question">Já acompanho conteúdo gratuito sobre a reforma. Não preciso pagar.</p>
+        <p class="objection-answer">
+          Conteúdo gratuito informa. Este evento prepara. A diferença está na profundidade técnica focada em PPS — fócada em como ela afeta as estruturas que você monta e orienta hoje. O que você vai sair sabendo não está em nenhum post de rede social.
+        </p>
+      </div>
+
+      <div class="objection-item">
+        <p class="objection-question">Não tenho tempo. Minha agenda é cheia.</p>
+        <p class="objection-answer">
+          São 3 horas. Investimento pequeno para um evento que cobre mudanças que você vai encontrar nos seus próximos 30 clientes. Escolha o ingresso VIP se quiser garantir também a gravação para assistir no ritmo da sua agenda.
+        </p>
+      </div>
+
+      <div class="objection-item">
+        <p class="objection-question">Ainda é cedo. A reforma ainda não entrou em vigor totalmente.</p>
+        <p class="objection-answer">
+          O cronograma já está definido. Os clientes já estão perguntando. Os primeiros a se preparar serão os primeiros a cobrar mais por esse serviço. Esperar é uma estratégia — porɪm não é a melhor para quem quer se posicionar à frente da concorrência quando o cliente mais precisar de uma orientação segura.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SEÇÃO 12: FAQ — PERGUNTAS FREQUENTES
+     ============================================================ -->
+<section id="faq" class="section--light">
+  <div class="container container--text">
+
+    <div class="text-center mb-xl">
+      <span class="badge">Perguntas frequentes</span>
+      <h2 style="margin-top:16px;">Outras perguntas<br>que você pode ter</h2>
+    </div>
+
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Quando é o evento?</span>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            O evento acontece no dia <strong>02 de junho de 2026, às 19h30</strong>. Reserve a data na sua agenda agora — o link de acesso será enviado por WhatsApp próximo à data.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Como acesso o evento?</span>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            O link de acesso será enviado por <strong>WhatsApp</strong>. Após a inscrição, você será adicionado ao grupo de participantes onde receberá o link antes do evento.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>A gravação fica disponível?</span>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            A gravação e o material de apoio (apostila e slides) estão inclusos no <strong>Ingresso VIP</strong>. Quem adquirir o ingresso básico participa ao vivo, mas não recebe a gravação após o evento.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Preciso ter experiência em PPS para participar?</span>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            O evento é voltado a profissionais que já atuam ou têm contato com PPS. Se você atende clientes com patrimônio ou sociedades, o conteúdo faz sentido desde o início — não é uma introdução ao tema, é aprofundamento sobre o impacto da reforma nas estruturas que você já conhece.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Vale para contador?</span>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            Sim. A reforma afeta diretamente o planejamento fiscal de holdings e estruturas patrimoniais. Contadores que dominam esse impacto se tornam parceiros mais estratégicos para seus clientes — e conseguem agregar mais valor (e cobrar mais) pelas orientações que já prestam.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SEÇÃN 13: SUPORTE
+     ============================================================ -->
+<section id="suporte" class="section--dark-alt">
+  <div class="container text-center">
+
+    <div class="mb-xl">
+      <span class="badge">Suporte</span>
+      <h2 style="margin-top:16px; color:var(--text-light);">Você não estará sozinho.</h2>
+    </div>
+
+    <p class="support-promise">
+      Tem dúvida antes do evento? Alguma pergunta depois? Estamos disponíveis para garantir que você aproveite ao máximo o conteúdo.
+    </p>
+
+    <div class="support-channels">
+
+      <div class="support-channel">
+        <span class="support-channel-icon" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="18" fill="#25D366" fill-opacity="0.15"/>
+            <path d="M18 7C12.477 7 8 11.477 8 17c0 1.814.487 3.514 1.337 4.98L8 29l7.2-1.317A9.95 9.95 0 0018 27c5.523 0 10-4.477 10-10S23.523 7 18 7z" stroke="#25D366" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M14 17.5c.5 1 1.5 2.5 3.5 3.5 2 1 3.5.5 3.5.5" stroke="#25D366" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="support-channel-name">WhatsApp</span>
+        <span class="support-channel-desc">Atendimento direto para dúvidas antes e após o evento</span>
+      </div>
+
+      <div class="support-channel">
+        <span class="support-channel-icon" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="18" fill="rgba(255,97,71,0.15)"/>
+            <path d="M9 12h18v14a1 1 0 01-1 1H10a1 1 0 01-1-1V12z" stroke="#F0502E" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M9 12l9 8 9-8" stroke="#F0502E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="support-channel-name">Grupo Exclusivo</span>
+        <span class="support-channel-desc">Grupo de participantes no WhatsApp para troca com colegas</span>
+      </div>
+
+    </div>
+
+    <p style="color:var(--text-muted-light); font-size:0.95rem; margin-bottom:40px;">
+      Dúvidas operacionais respondidas em até 24h úteis.
+    </p>
+
+    <!-- CTA Repetição -->
+    <div>
+      <a href="#oferta" class="btn-cta--hero" style="display:inline-block;">
+        Garantir minha vaga
+      </a>
+      <p style="color:var(--text-muted-light); font-size:0.85rem; margin-top:16px;">
+        Ingresso básico ou VIP · Confirmação imediata por e-mail
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  var items = document.querySelectorAll('.accordion-item');
+  items.forEach(function(item) {
+    var header = item.querySelector('.accordion-header');
+    if (!header) return;
+    header.addEventListener('click', function() {
+      var isActive = item.classList.contains('active');
+      // Fechar todos
+      items.forEach(function(other) {
+        other.classList.remove('active');
+        var body = other.querySelector('.accordion-body');
+        if (body) body.style.maxHeight = null;
+      });
+      // Abrir o clicado (se não estava ativo)
+      if (!isActive) {
+        item.classList.add('active');
+        var body = item.querySelector('.accordion-body');
+        if (body) body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+</script>
+<style>
+/* ===========================
+   BLOCO 4: CSS Específico
+   =========================== */
+
+/* === Seção 14: Argumentos Incontestáveis === */
+.stat-section {
+  text-align: center;
+  padding: 20px 0;
+}
+.stat-number-display {
+  font-family: var(--titulo-family), sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  color: var(--accent);
+  line-height: 1;
+  display: block;
+}
+@media (min-width: 768px) {
+  .stat-number-display { font-size: 7rem; }
+}
+@media (min-width: 1024px) {
+  .stat-number-display { font-size: 9rem; }
+}
+.stat-label {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-muted-light);
+  margin-top: 4px;
+  display: block;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.stat-source {
+  font-family: var(--subtitulo-family), sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted-light);
+  font-style: italic;
+  margin-top: 12px;
+  display: block;
+}
+.stat-text {
+  font-size: 1.2rem;
+  color: var(--text-muted-light);
+  margin-top: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+@media (min-width: 768px) {
+  .stat-text { font-size: 1.35rem; }
+}
+.arg-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (min-width: 768px) {
+  .arg-grid { grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+}
+.arg-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 3px solid var(--accent-mid);
+  border-radius: var(--border-radius);
+  padding: 28px 24px;
+  text-align: center;
+}
+.arg-card-number {
+  font-family: var(--titulo-family), sans-serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: var(--accent-mid);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.arg-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted-light);
+  line-height: 1.6;
+}
+
+/* === Seção 15: Dores & Desejos === */
+.dores-column {
+  background: rgba(239, 68, 68, 0.06);
+  border-left: 4px solid #EF4444;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  padding: 32px 28px;
+}
+.dores-column h3 {
+  color: #EF4444;
+  margin-bottom: 16px;
+}
+.dores-column ul {
+  padding: 0;
+  margin: 0;
+}
+.dores-column li {
+  padding: 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  list-style: none;
+  position: relative;
+  padding-left: 28px;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(239,68,68,0.08);
+}
+.dores-column li:last-child { border-bottom: none; }
+.dores-column li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: #EF4444;
+  font-weight: 700;
+}
+
+.desejos-column {
+  background: rgba(34, 197, 94, 0.06);
+  border-left: 4px solid #22C55E;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  padding: 32px 28px;
+}
+.desejos-column h3 {
+  color: #22C55E;
+  margin-bottom: 16px;
+}
+.desejos-column ul {
+  padding: 0;
+  margin: 0;
+}
+.desejos-column li {
+  padding: 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  list-style: none;
+  position: relative;
+  padding-left: 28px;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(34,197,94,0.08);
+}
+.desejos-column li:last-child { border-bottom: none; }
+.desejos-column li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22C55E;
+  font-weight: 700;
+}
+
+/* === Seção 17: Comparação === */
+.comparison-block {
+  padding: 32px 28px;
+  border-radius: var(--border-radius);
+}
+.comparison-block--sem {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+.comparison-block--com {
+  background: rgba(34, 197, 94, 0.05);
+  border: 2px solid rgba(34, 197, 94, 0.35);
+}
+.comparison-block h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+.comparison-block--sem h3 { color: #EF4444; }
+.comparison-block--com h3 { color: #22C55E; }
+.comparison-block ul {
+  padding: 0;
+  margin: 0;
+}
+.comparison-block li {
+  padding: 12px 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  list-style: none;
+  position: relative;
+  padding-left: 28px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.comparison-block li:last-child { border-bottom: none; }
+.comparison-block--sem li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: #EF4444;
+  font-weight: 700;
+}
+.comparison-block--com li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22C55E;
+  font-weight: 700;
+}
+
+/* Footer mínimo */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg-dark);
+  color: var(--text-muted-light);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer a {
+  color: var(--accent);
+}
+
+/* CTA Final wrapper */
+.cta-final-wrapper {
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-dark-alt));
+  border-radius: var(--border-radius);
+  padding: 48px 32px;
+  text-align: center;
+  border: 1px solid rgba(255,97,71,0.12);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.cta-final-wrapper h2 {
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+.cta-final-wrapper p {
+  color: var(--text-muted-light);
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+}
+</style>
+
+<!-- ============================================================
+     SEÇÃO 14: ARGUMENTOS INCONTESTÁVEIS
+     ============================================================ -->
+<section id="argumentos" class="section--dark-gradient">
+  <div class="container text-center">
+
+    <div class="mb-xl">
+      <span class="badge">Por que agir agora</span>
+      <h2 style="margin-top:16px; color:var(--text-light);">O cronograma já está definido.<br>Não h� como ignorar.</h2>
+    </div>
+
+    <!-- Número central em destaque -->
+    <div class="stat-section">
+      <span class="stat-number-display">2027</span>
+      <span class="stat-label">Implementação progressiva do IBS e CBS em plena vigência</span>
+      <p class="stat-text" style="margin-top:24px;">
+        O cronograma da reforma tributária já está definido. IBS e CBS têm prazos de implementação conhecidos. O profissional que não se preparar vai ser pego de surpresa exatamente quando o cliente mais precisar de uma orientação segura.
+      </p>
+      <span class="stat-source">Lei Complementar 214/2025 — cronograma de implementação do IBS e CBS</span>
+    </div>
+
+    <!-- Cards de argumento -->
+    <div class="arg-grid">
+
+      <div class="arg-card">
+        <span class="arg-card-number">2026</span>
+        <p class="arg-card-desc">Início do período de transição — IBS e CBS começam a ser cobrados progressivamente sobre as operações</p>
+      </div>
+
+      <div class="arg-card">
+        <span class="arg-card-number">LC&nbsp;214</span>
+        <p class="arg-card-desc">Lei Complementar que define o cronograma da reforma — prazos já estão fixados, não há mais incerteza sobre quando</p>
+      </div>
+
+      <div class="arg-card">
+        <span class="arg-card-number">R$&nbsp;49</span>
+        <p class="arg-card-desc">Investimento recuperado na próxima consulta em que você entrega uma orientação segura e fundamentada sobre a reforma</p>
+      </div>
+
+    </div>
+
+    <!-- Argumento final -->
+    <div style="margin-top:48px; max-width:700px; margin-left:auto; margin-right:auto;">
+      <blockquote class="quote" style="text-align:left; color:var(--text-muted-light); border-left-color:var(--accent-soft);">
+        "Quem se prepara agora, cobra mais amanhã. Esperar é uma estratégia — mas não é a melhor para quem quer se posicionar à frente quando o cliente mais precisar."
+      </blockquote>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SEÇÃO 15: DORES E DESEJOS
+     ============================================================ -->
+<section id="dores-desejos" class="section--light">
+  <div class="container">
+
+    <div class="text-center mb-xl">
+      <span class="badge">Reconhece esse cenário?</span>
+      <h2 style="margin-top:16px;">Onde você está hoje.<br>Onde você pode estar amanhã.</h2>
+    </div>
+
+    <div class="grid-2">
+
+      <!-- DORES -->
+      <div class="dores-column">
+        <h3>Hoje, sem clareza sobre a reforma:</h3>
+        <ul>
+          <li>Insegurança ao responder como o novo ITCMD e o IR de Alta Renda afetam as estruturas do cliente</li>
+          <li>Medo de dar uma orientação errada em um cenário ainda em transição</li>
+          <li>Não saber exatamente o que vai mudar no IBS e CBS, quando e o que fazer — e isso aparecer na conversa com o cliente</li>
+        </ul>
+      </div>
+
+      <!-- DESEJOS -->
+      <div class="desejos-column">
+        <h3>Depois de A Nova Era do PPS:</h3>
+        <ul>
+          <li>Segurança técnica para orientar sobre ITCMD, IR de Alta Renda, IBS e CBS com clareza e fundamento</li>
+          <li>Transformar o domínio da reforma em serviço diferenciado que clientes de alto patrimônio pagam mais para ter</li>
+          <li>Ser o profissional que o cliente chama antes de tomar qualquer decisão patrimonial ou sucessória</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- CTA intermediário -->
+    <div class="text-center" style="margin-top:48px;">
+      <p style="font-size:1.1rem; color:var(--text-muted); margin-bottom:24px;">
+        A diferença entre os dois cenários é uma decisão de 3 horas.
+      </p>
+      <a href="#oferta" class="btn-cta--hero" style="display:inline-block;">
+        Garantir minha vaga
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SEÇÃO 17: COMPARAÇÃO COM OUTRAS SOLUÇÕES + CTA FINAL
+     ============================================================ -->
+<section id="comparacao" class="section--light-alt">
+  <div class="container">
+
+    <div class="text-center mb-xl">
+      <span class="badge">Por que este evento</span>
+      <h2 style="margin-top:16px;">O que muda quando você<br>vai além do conteúdo genérico</h2>
+    </div>
+
+    <!-- Blocos de comparação -->
+    <div class="grid-2" style="margin-bottom:60px;">
+
+      <div class="comparison-block comparison-block--sem">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle; margin-right:6px; margin-top:-2px;">
+            <circle cx="9" cy="9" r="8.5" stroke="#EF4444"/>
+            <path d="M5.5 5.5l7 7M12.5 5.5l-7 7" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Conteúdo gratuito nas redes
+        </h3>
+        <ul>
+          <li>Explica o IBS e a CBS em visão geral, sem foco em PPS</li>
+          <li>Não diz o que fazer com as estruturas que você já montou para o cliente</li>
+          <li>Raso demais para gerar segurança técnica em uma consulta</li>
+          <li>Mistura de opiniões sem profundidade técnica aplicada</li>
+        </ul>
+      </div>
+
+      <div class="comparison-block comparison-block--com">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle; margin-right:6px; margin-top:-2px;">
+            <circle cx="9" cy="9" r="8.5" stroke="#22C55E"/>
+            <path d="M5 9.5l3 3 5-6" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          A Nova Era do PPS
+        </h3>
+        <ul>
+          <li>3 horas focadas no impacto real da reforma no planejamento patrimonial e sucessório</li>
+          <li>Profundidade técnica em IBS/CBS nas estruturas e holdings que você orienta</li>
+          <li>Casos práticos e visão de quem tem 20 anos de PPS e já viu tudo isso de perto</li>
+          <li>Sai com clareza sobre o que orientar, o que revisar e como cobrar mais por isso</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="cta-final-wrapper">
+      <h2>Pronto para sair na frente<br>na nova era do PPS?</h2>
+      <p>
+        Um evento de 3 horas que pode mudar o nível das orientações que você entrega — e o quanto você cobra por elas.
+      </p>
+      <a href="#oferta" class="btn-cta--hero" style="display:inline-block; margin-bottom:16px;">
+        Garantir minha vaga
+      </a>
+      <p style="font-size:0.85rem; color:var(--text-muted-light); margin-top:0;">
+        Ingresso básico ou VIP &nbsp;|&nbsp; Acesso via link por WhatsApp confirmado por e-mail
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div style="margin-bottom: 20px;">
+      <img
+        src="https://res.cloudinary.com/dp3phn2kz/image/upload/v1778700389/Design_sem_nome_28_montfg.png"
+        alt="A Nova Era do PPS"
+        style="max-width: 120px; width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px;"
+      />
+    </div>
+    <p>Dúvidas? Entre em contato via WhatsApp ou pelo grupo exclusivo de participantes.</p>
+    <p style="margin-top:16px; font-size:0.78rem; opacity:0.6;">
+      &copy; 2025 A Nova Era do PPS. Todos os direitos reservados.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
