@@ -1,15 +1,10 @@
 {
-  "version": 2,
-  "name": "nova-era-pps",
-  "builds": [
-    {"src": "*.html", "use": "@vercel/static"}
-  ],
-  "routes": [
-    {"src": "/obrigado", "dest": "/obrigado.html"},
-    {"src": "/aguardando-pagamento", "dest": "/aguardando-pagamento.html"},
-    {"src": "/aguardando-analise", "dest": "/aguardando-analise.html"},
-    {"src": "/versao-a", "dest": "/versao-a.html"},
-    {"src": "/versao-b", "dest": "/versao-b.html"},
-    {"src": "/(.*)", "dest": "/index.html"}
+  "cleanUrls": true,
+  "rewrites": [
+    {"source": "/obrigado", "destination": "/obrigado.html"},
+    {"source": "/aguardando-pagamento", "destination": "/aguardando-pagamento.html"},
+    {"source": "/aguardando-analise", "destination": "/aguardando-analise.html"},
+    {"source": "/versao-a", "destination": "/versao-a.html"},
+    {"source": "/versao-b", "destination": "/versao-b.html"}
   ]
 }
